@@ -1,16 +1,33 @@
 # ht_flutter_getx_listproduk
 
-A new Flutter project.
+## Discovering Project
+After setting up all the needed thing now lets talk about folder structure which is mainly based on Getx Pattern and there are some personal opinions, if you open your lib folder you will find those folders
 
-## Getting Started
+```
+.
+└── lib
+    ├── core
+    │   ├── components
+    │   ├── config
+    │   ├── routes
+    │   ├── utils
+    ├── data
+    │   ├── local
+    │   │   ├── db
+    │   │   └── prefs
+    │   ├── network
+    │   │   ├── services
+    │   │   api_repository 
+    │   └── repositories
+    ├── domain
+    │   └── models
+    └── persentation
+        └── [modular]
+             ├── controller
+             └── pages
+```
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- core: will contain all our core app 
+- data: will contain fetching services
+- domain: contains all moduls and entites
+- persentation: contains all modular project and state management
