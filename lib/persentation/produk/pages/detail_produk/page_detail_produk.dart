@@ -82,7 +82,6 @@ class _DetailProdukPageState extends State<DetailProdukPage> {
                           Navigator.pop(context);
                           produkController.apiCallStatus.value = ApiCallStatus.loading;
                           Get.back();
-                          Get.to(() => ProdukPage());
                           ApiProduk().loadDeleteListProduk(widget.index);
 
                         });
@@ -166,7 +165,7 @@ class _DetailProdukPageState extends State<DetailProdukPage> {
                       context, widget.onUpdate==true?"Apakah anda ingin meng-update data?":"Apakah anda ingin menambah data?", "", () {
                     Navigator.pop(context);
                     Get.back();
-                    Get.to(() => ProdukPage());
+                    produkController.apiCallStatus.value = ApiCallStatus.loading;
                     if(widget.onUpdate==true){ApiProduk().loadUpdateDetailListProduk(
                         widget.index, _listDetailProduk);
 

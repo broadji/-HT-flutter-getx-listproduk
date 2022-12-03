@@ -62,6 +62,8 @@ class ProdukController extends GetxController {
       } catch (e) {
         CustomSnackBar.showCustomErrorToast(message: "Data gagal diupdate");
       }
+      data.refresh();
+      apiCallStatus.value = ApiCallStatus.success;
     });
 
     //for update all element
@@ -71,16 +73,19 @@ class ProdukController extends GetxController {
     //   element.price = dataProduk[0]["price"];
     //   element.description = dataProduk[0]["description"];
     // });
-    data.refresh();
+
   }
 
   getAddDetailListProduk(List<dynamic> dataProduk) async {
-    print("dataProduk");
-    print(dataProduk);
-    data.value.addAll(List<dynamic>.from(dataProduk)
-        .map((itemWord) => ProdukModel.fromJson(itemWord))
-        .toList());
-    CustomSnackBar.showCustomToast(message: "Data berhasil ditambahkan");
+    Timer(const Duration(seconds: 2), () async {
+      data.value.addAll(List<dynamic>.from(dataProduk)
+          .map((itemWord) => ProdukModel.fromJson(itemWord))
+          .toList());
+      CustomSnackBar.showCustomToast(message: "Data berhasil ditambahkan");
+      data.refresh();
+      apiCallStatus.value = ApiCallStatus.success;
+    });
+
     //dummy test
     // data.value.addAll(List<dynamic>.from([{
     //   "image": "test1",
@@ -91,7 +96,6 @@ class ProdukController extends GetxController {
     // }]).map((itemWord) => ProdukModel.fromJson(itemWord))
     //     .toList()
     //     );
-    data.refresh();
   }
 
   @override
