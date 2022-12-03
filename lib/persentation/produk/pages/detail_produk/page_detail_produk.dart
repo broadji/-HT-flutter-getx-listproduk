@@ -209,6 +209,7 @@ class _DetailProdukPageState extends State<DetailProdukPage> {
           Expanded(
                   flex: 7,
                   child: CustomForm.inputForm(context, "", true, valueText,
+                      formType: typeVar,
                       onChanged: (value) {
                     if(typeVar == "String"){
                       _listDetailProduk[0][title.toLowerCase()] = value;
@@ -222,7 +223,7 @@ class _DetailProdukPageState extends State<DetailProdukPage> {
                     setState(() {});
                   },
                       disableForm:
-                          produkController.editFormProduk.value ? true : false))
+                          produkController.editFormProduk.value ? true : false,))
               : Expanded(
                   flex: 7,
                   child: Text(

@@ -4,7 +4,7 @@ import 'package:ht_flutter_getx_listproduk/core/config/theme/app_fonts.dart';
 
 class CustomForm{
   static inputForm(BuildContext context,String? hintText, bool? withDecoration,
-      TextEditingController inputController,{Function(String)? onChanged, dynamic onUpdateingCompleted, dynamic onFocusChange, bool? disableForm}) {
+      TextEditingController inputController,{Function(String)? onChanged, dynamic onUpdateingCompleted, dynamic onFocusChange, bool? disableForm, String? formType="String"}) {
     BoxDecoration decoration;
     double paddingContainer = 0;
     if (withDecoration == true) {
@@ -40,6 +40,7 @@ class CustomForm{
                 enabled: disableForm,
                 controller: inputController,
                 style: AppFonts.bodyTextStyle,
+                keyboardType: formType=='double'? TextInputType.number :TextInputType.text,
                 decoration: InputDecoration.collapsed(
                     hintText: hintText, hintStyle: AppFonts.bodyTextStyle,),
                 onChanged: onChanged,
