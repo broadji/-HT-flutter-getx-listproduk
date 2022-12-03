@@ -39,11 +39,14 @@ dependencies:
   #state management
   get: #state management
 
-  #tools local
+  #tools data
   dio:
   pretty_dio_logger:
   get_storage: # shared preferences replacement (sync)
   logger: # log events in clear way insted of (print)
+
+  #tools function
+  image_picker:
 
 
 

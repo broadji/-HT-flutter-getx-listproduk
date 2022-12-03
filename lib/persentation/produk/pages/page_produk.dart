@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +113,9 @@ class listProduk extends StatelessWidget {
                                             color: Colors.black,
                                             height: 400,
                                             width: 400,
-                                            child: CachedNetworkImage(
+                                            child:
+                                                produkController.data[index].image.toString().contains("http")?
+                                            CachedNetworkImage(
                                               imageBuilder: (context, imageProvider) => Container(
                                                 decoration: BoxDecoration(
                                                   image: DecorationImage(
@@ -127,7 +131,8 @@ class listProduk extends StatelessWidget {
                                               ),
                                               imageUrl:
                                               produkController.data[index].image.toString(),
-                                            ),
+                                            ):Image.file(
+                                                    fit: BoxFit.fill, File(produkController.data[index].image.toString(),)),
                                           ),
                                           Container(
                                             color: Theme.of(context).primaryColorLight,

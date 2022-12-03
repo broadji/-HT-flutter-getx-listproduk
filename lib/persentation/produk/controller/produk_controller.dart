@@ -52,6 +52,7 @@ class ProdukController extends GetxController {
   getUpdateDetailListProduk(int index, List<dynamic> dataProduk) async {
     Timer(const Duration(seconds: 2), () async {
       try {
+        data.value.elementAt(index).image = dataProduk[0]["image"];
         data.value.elementAt(index).title = dataProduk[0]["title"];
         data.value.elementAt(index).category = dataProduk[0]["category"];
         data.value.elementAt(index).price =
